@@ -132,7 +132,7 @@ class ATTESTGEN {
         $this->url_png=ATTESTGEN::convert_pdf_to_png($this->url_pdf);
     }
     
-    function generate_attest($name,$fname,$ddn,$lieu_ddn,$address,$zip,$ville, $motifs, $dateAttest, $timeAttest, $secondPage=false, $subFolder='') {
+    function generate_attest($name,$fname,$ddn,$lieu_ddn,$address,$zip,$ville, $motifs, $dateAttest, $timeAttest, $secondPage=false, $subFolder='', $villeSig='') {
         log::add('CovidAttest', 'debug', '║ ╔══════════════════════ Start Generating Attestation ════════════════════ ');
         // verification si le motif est bien un array
         if(!is_array($motifs)){
@@ -217,7 +217,12 @@ class ATTESTGEN {
         catch (Exception $e) {
             log::add('CovidAttest', 'error', 'Error creating PDF file ('.$e->getMessage().')');
         }
-      	log::add('CovidAttest','debug','║ ╠════ pdf source copies');
+          log::add('CovidAttest','debug','║ ╠════ pdf source copies');
+          
+        // vérif de la ville sig
+        if ($villeSig==''){
+            $villeSig=$ville;
+        }
         // ecriture
         //$pdf->SetFont('Arial', '', '13');
         $pdf->SetTextColor(0,0,0);
@@ -248,7 +253,7 @@ class ATTESTGEN {
         //ville
         $pdf->SetFont('Arial', '', $posDef['SIG_VILLE']['size']);
         $pdf->SetXY($posDef['SIG_VILLE']["x"], $posDef['SIG_VILLE']["y"]);
-        $pdf->Write(0, utf8_decode($ville));
+        $pdf->Write(0, utf8_decode($villeSig));
 
         // date
         $pdf->SetFont('Arial', '', $posDef['SIG_DATE']['size']);
