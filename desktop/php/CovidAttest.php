@@ -143,9 +143,22 @@ foreach (jeeObject::all() as $object) {
            <label class="col-sm-3 control-label">{{Ville}}</label>
         <div class="col-sm-3">
             <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="user_ctown" placeholder="Here"/>
+        </div>  
+    </div>
+    
+  </div>
+  <div class="form-group">
+        <label class="col-sm-3 control-label help" data-help="{{pour utiliser une second ville en signature}}">{{Ville signature différente}}</label>
+        <div class="col-sm-9">
+            <input type="checkbox" class="eqLogicAttr" data-l1key="configuration" data-l2key="use_user_ctown_sign"/>
         </div>
     </div>
-  </div>
+    <div class="form-group user_ctown_sign">
+           <label class="col-sm-3 control-label">{{Ville - signature}}</label>
+        <div class="col-sm-3">
+            <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="user_ctown_sign" placeholder="Here"/>
+        </div>
+    </div>
     <div class="form-group">
 		<label class="col-sm-3 control-label help" >{{Commande d'envoi}}</label>
         <input type="checkbox" class="eqLogicAttr" data-l1key="configuration" data-l2key="use_scenar"/>

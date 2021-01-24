@@ -57,9 +57,12 @@ Permet de générer une attestation dérogatoire au confinement en France. Gén�
  * __Ville de naissance__ : la ville de naissance à faire figurer sur l'attestation
  
  * __Utiliser l'adresse de jeedom__ : permet d'utiliser l'adresse renseignée dans la configuration de Jeedom (Réglages->Système->Configuration->Information). Les champs suivants seront alors masqués
- * __Adresse__ : *masqué si utiliser l'adresse Jeedom est coché* l'adresse à faire figurer sur l'attestation
- * __Code postal__ : *masqué si utiliser l'adresse jeedom est coché* le code postal à faire figurer sur l'attestation
- * __Ville__ : *masqué si utiliser l'adresse Jeedom est coché* la ville à faire figurer sur l'attestation
+ * __Adresse__ : l'adresse à faire figurer sur l'attestation *masqué si utiliser l'adresse Jeedom est coché* 
+ * __Code postal__ : le code postal à faire figurer sur l'attestation *masqué si utiliser l'adresse jeedom est coché* 
+ * __Ville__ : la ville à faire figurer sur l'attestation *masqué si utiliser l'adresse Jeedom est coché* 
+ 
+ * __Ville signature différente__ : Si vous souhaitez utiliser une autre ville que celle de l'adresse dans la signature
+ * __Ville Signature__ : la ville à faire figurée dans la signature de l'attestation *masqué si 'vlle signature différente' est coché* 
  
  
  * __Commande d'envoi__ : commande qui permet d'envoyer les documents

@@ -602,7 +602,15 @@ public static function dependancy_install() {
         $adresse=$this->getConfiguration('user_adress', '');
         $code_postal=$this->getConfiguration('user_zip', '');
         $ville=$this->getConfiguration('user_ctown', '');
-      }
+	  }
+	  // récup de ville de signature différente
+	  if($this->getConfiguration('use_user_ctown_sign', '')){
+		$villeSig = $this->getConfiguration('user_ctown_sign', '');
+		log::add('CovidAttest','debug', "╠════ Ville siugnature selectionnée: ".$villeSig);
+      }else{
+        $villeSig='';
+	  }
+	  
 
         log::add('CovidAttest','debug', "╠════ Cree le: ".$dateAttest.";\n Nom: ".$nom.";\n Prenom: ".$prenom.";\n Naissance: ".$date_naissance." a ".$lieu_naissance.";\n Adresse: ".$adresse." ".$code_postal." ".$ville.";\n Sortie: ".$dateAttest."\n Motifs: ".$motifs);
 		// récupération de l'option seconde page
@@ -623,7 +631,7 @@ public static function dependancy_install() {
 		}
 
         
-        $pdfURL = $ag->generate_attest($nom, $prenom, $date_naissance,$lieu_naissance,$adresse,$code_postal,$ville, $motifs, $dateAttest, $timeAttest, $secondpage, self::SUBFOLDER.$this->getId());
+        $pdfURL = $ag->generate_attest($nom, $prenom, $date_naissance,$lieu_naissance,$adresse,$code_postal,$ville, $motifs, $dateAttest, $timeAttest, $secondpage, self::SUBFOLDER.$this->getId(),$villeSig);
         log::add('CovidAttest','debug', '╠════ pdf url :'.$pdfURL);
         $qrcURL =$ag->getQRCURL();
         log::add('CovidAttest','debug', '╠════ png url :'.$qrcURL);

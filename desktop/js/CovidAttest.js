@@ -76,6 +76,23 @@ $(".eqLogicAttr[data-l2key='use_jeeadd']").on('change', function () {
   }
 });
 
+$(".eqLogicAttr[data-l2key='use_user_ctown_sign']").on('click', function () {
+  if(!this.checked){
+    $(".user_ctown_sign").hide();
+  }else{
+     $(".user_ctown_sign").show();
+  }
+});
+$(".eqLogicAttr[data-l2key='use_user_ctown_sign']").on('change', function () {
+  if(!this.checked){
+    $(".user_ctown_sign").hide();
+  }else{
+     $(".user_ctown_sign").show();
+  }
+});
+
+
+
 $(".eqLogicAttr[data-l2key='option_typeEq']").on('change', function () {
   checkCAEquip();
 });

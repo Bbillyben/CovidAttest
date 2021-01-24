@@ -1,3 +1,6 @@
+### 24/01/2021
+* ajout du paramètre optionnel ville de signature différente de celle de la ville de l'adresse
+
 ### 04/01/2021
  * Mise à jour du certificat (moins de 2 heure depuis la publication sur le git du gouvernement! record !)
 
