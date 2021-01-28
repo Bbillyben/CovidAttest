@@ -1,3 +1,6 @@
+### 28/01/2021
+* Mise à jour du certificat en date du 25/01/21 - modification du motif santé
+
 ### 24/01/2021
 * ajout du paramètre optionnel ville de signature différente de celle de la ville de l'adresse
 
