@@ -33,6 +33,10 @@ function CovidAttest_update() {
   //message::add('CovidAttest','Pensez à mettre à jour vos équipement (-> sauvegarde), un nouveau motif à été ajouté');
   log::add('CovidAttest', 'info', 'mise à jour du certificat vers :'.ATTESTGEN::certiFName );
   config::save('certificate_name',ATTESTGEN::certiFName, 'CovidAttest');
+ log::add('MonitoGitHub','debug','=============  mise à jour des equipements suite à update plugin =============');
+ foreach (eqLogic::byType("CovidAttest", true) as $eqLogic) {
+	$freq = $eqLogic->save();
+ }
 }
 
 // Fonction exécutée automatiquement après la suppression du plugin
