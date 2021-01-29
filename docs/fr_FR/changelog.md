@@ -1,3 +1,6 @@
+### 29/01/2021
+* correction placement des information pour le nouveau certificat.
+
 ### 28/01/2021
 * Mise à jour du certificat en date du 25/01/21 - modification du motif santé
 
