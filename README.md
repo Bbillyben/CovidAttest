@@ -94,13 +94,13 @@ Peut être utile pour l'utiliser avec notification queue par exemple.
 
  # |Utilisation|
  
- ## envoi des documents
+ ### envoi des documents
 
 1. direct : utilisez simplement les commandes créées, qui correspondent chacune à un type de motif de dérogation.
 
 2. Pour cocher plusieurs motifs : utiliser la commande envoi Multiple, de type message, avec dans la partie 'message' les motifs séparés par une virgule (',') ou point virgule (';'). Les motifs sont accessibles dans l'équipement par les commandes info nommées par motif (motif TRAVAIL par exemple).
 
-## Spécifier la date ou l'heure :
+### Spécifier la date ou l'heure :
 Dans l'equipement, il y a 1 commande par type de motif, plus 2 info : __date attestation__ et __heure attestation__.
 => Si vous renseignez ces valeurs, avant d'envoyer la commande, elles seront utilisées pour générer l'attestation.
 une fois utilisées, elle seront réinitialisées à 0.
@@ -112,13 +112,14 @@ Exemple :  ici on génère une attestation au *_1er décembre 1970_* à *_8h44_*
 ![equip_image](/img_readme/scenario.PNG)  
 **note : les nom des commandes info ont changé => __date attestation__ et __heure attestation__ par dédaut
 
-3. vous pouvez définir dynamiquement une ville spécifique pour la signature:
+### Modifier la ville signature dynamiquement :
+1. vous pouvez définir dynamiquement une ville spécifique pour la signature:
 Pour ce faire, utilisez la commande "Set Ville signature",
 > !! cela modifiera la configuration de l'équipement :
 > la case à cocher "Ville signature" sera activée
 > la ville signature sera renseignée
 
-4. vous pouvez supprimer dynamiquement la ville signature :
+2. vous pouvez supprimer dynamiquement la ville signature :
 Pour ce faire, utilisez la commande "Supprime Ville signature",
 > !! cela modifiera la configuration de l'équipement :
 > la case à cocher "Ville signature" sera désactivé
