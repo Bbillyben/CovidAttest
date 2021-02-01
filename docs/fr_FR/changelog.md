@@ -1,3 +1,7 @@
+### 01/02/2021
+* Ajout des commande set ville signature et delete ville signature
+* cosmétique de l'onglet équipement
+
 ### 29/01/2021
 * correction placement des information pour le nouveau certificat.
 
