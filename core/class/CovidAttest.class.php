@@ -511,6 +511,9 @@ public static function dependancy_install() {
 		$motifType->setEqLogic_id($this->getId());
 		$motifType->save();
       
+
+		// les commandes autres
+		// suppresion manuelle des fichiers
       $removeCmd = $this->getCmd(null, 'remove_file');
 		if (!is_object($removeCmd)) {
 			$removeCmd = new CovidAttestCmd();
@@ -522,8 +525,31 @@ public static function dependancy_install() {
 		$removeCmd->setSubType('other');
 		$removeCmd->setEqLogic_id($this->getId());
 		$removeCmd->save();
-      
-      
+
+      // mofidification dynamique de la ville de signature
+      $motif = $this->getCmd(null, 'set_sig_ville');
+		if (!is_object($motif)) {
+			$motif = new CovidAttestCmd();
+			$motif->setLogicalId('set_sig_ville');
+			$motif->setIsVisible(1);
+			$motif->setName(__('Set Ville signature', __FILE__));
+		}
+        $motif->setType('action');
+		$motif->setSubType('message');
+		$motif->setEqLogic_id($this->getId());
+		$motif->save();
+
+		$removeCmd = $this->getCmd(null, 'remove_sig_ville');
+		if (!is_object($removeCmd)) {
+			$removeCmd = new CovidAttestCmd();
+			$removeCmd->setLogicalId('remove_sig_ville');
+			$removeCmd->setIsVisible(1);
+			$removeCmd->setName(__('Supprime Ville signature', __FILE__));
+		}
+        $removeCmd->setType('action');
+		$removeCmd->setSubType('other');
+		$removeCmd->setEqLogic_id($this->getId());
+		$removeCmd->save();
       //
     }
 
@@ -861,6 +887,17 @@ class CovidAttestCmd extends cmd {
              	log::add('CovidAttest', 'debug', '╠════ motifs multiples : '.implode('#',$motifs));
              	$this->getEqLogic()->createDirectPDF($motifs, $cmdId, $cmdName);
              	break;
+			case 'set_sig_ville':
+				$this->getEqLogic()->setconfiguration('user_ctown_sign',$_options['message']);
+				$this->getEqLogic()->setconfiguration('use_user_ctown_sign',1);
+				$this->getEqLogic()->save();
+
+			break;
+			case 'remove_sig_ville':
+				$this->getEqLogic()->setconfiguration('use_user_ctown_sign',0);
+				$this->getEqLogic()->save();
+
+			break;
              Default:
                  log::add('CovidAttest','debug', '╠════ Deafault call');
 
