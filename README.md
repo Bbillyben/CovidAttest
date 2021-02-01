@@ -112,6 +112,19 @@ Exemple :  ici on génère une attestation au *_1er décembre 1970_* à *_8h44_*
 ![equip_image](/img_readme/scenario.PNG)  
 **note : les nom des commandes info ont changé => __date attestation__ et __heure attestation__ par dédaut
 
+3. vous pouvez définir dynamiquement une ville spécifique pour la signature:
+Pour ce faire, utilisez la commande "Set Ville signature",
+> !! cela modifiera la configuration de l'équipement :
+> la case à cocher "Ville signature" sera activée
+> la ville signature sera renseignée
+
+4. vous pouvez supprimer dynamiquement la ville signature :
+Pour ce faire, utilisez la commande "Supprime Ville signature",
+> !! cela modifiera la configuration de l'équipement :
+> la case à cocher "Ville signature" sera désactivé
+> la ville signature restera renseignée, mais ne sera plus utilisée
+
+
 ## widget 
 
 Il est celui par défaut, il reprend les commandes d'envoi des notifications.
